@@ -1,18 +1,41 @@
+@import '../vars';
+
 .carousel {
   display: flex;
   margin: 5rem auto;
   width: 60rem;
   height: 40rem;
+  overflow: hidden;
+
+  & .helper {
+    display: inline-flex;
+    animation: slideIn 10s ease-in-out infinite;
+
+    & img {
+      width: $slide_width;
+      height: $slide_height;
+    }
+  }
 }
 
-.img {
-  width: 60rem;
-  height: 40rem;
-  display: block;
-  transform: translateX(-300px);
-  transition: transform 0.5s linear;
-}
+@keyframes slideIn {
+  0% {
+    transform: translateX(0px);
+  }
 
-.visible {
-  transform: translateX(0px);
+  25% {
+    transform: translateX(-$slide_width);
+  }
+
+  50% {
+    transform: translateX(-$slide_width * 2);
+  }
+
+  75% {
+    transform: translateX(-$slide_width * 3);
+  }
+
+  100% {
+    transform: translateX(-$slide_width * 4);
+  }
 }

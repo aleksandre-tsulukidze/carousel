@@ -8,7 +8,7 @@ module.exports = merge(common, {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[contenthash].js',
-    assetModuleFilename: 'images/[name][ext]',
+    assetModuleFilename: 'images/[name][contenthash][ext]',
   },
   mode: 'production',
   module: {
@@ -17,6 +17,7 @@ module.exports = merge(common, {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
+      { test: /\.(png|jpg|svg)$/, type: 'asset/resource' },
     ],
   },
   plugins: [

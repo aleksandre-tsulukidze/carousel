@@ -7,15 +7,15 @@ module.exports = merge(common, {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    assetModuleFilename: 'images/[name][ext]',
+    assetModuleFilename: 'images/[name][ext]'
   },
   module: {
     rules: [
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
-      { test: /\.(png|jpg|svg)$/, type: 'asset/resource' },
-    ],
-  },
+      { test: /\.(png|jpg|svg)$/, type: 'asset/resource' }
+    ]
+  }
 });

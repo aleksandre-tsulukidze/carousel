@@ -2,14 +2,31 @@
 
 .carousel {
   display: flex;
-  margin: 5rem auto;
-  width: 60rem;
-  height: 40rem;
+  margin: 0 auto;
+  width: $slide_width;
+  height: $slide_height;
   overflow: hidden;
 
   & .helper {
     display: inline-flex;
-    animation: slideIn 10s ease-in-out infinite;
+    width: $slide_width;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    & img {
+      width: $slide_width;
+      height: $slide_height;
+      transition: transform 0.6s linear;
+    }
+  }
+
+  & .swapping {
+    display: inline-flex;
+    width: $slide_width;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
     & img {
       width: $slide_width;
@@ -18,24 +35,46 @@
   }
 }
 
-@keyframes slideIn {
-  0% {
-    transform: translateX(0px);
-  }
+button {
+  width: 4rem;
+  height: 4rem;
+  font-size: 2.5rem;
+  border: none;
+  background-color: $primary;
+  border-radius: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  25% {
-    transform: translateX(-$slide_width);
-  }
+.back {
+  position: absolute;
+  top: 50vh;
+  left: 3%;
+}
 
-  50% {
-    transform: translateX(-$slide_width * 2);
-  }
+.next {
+  position: absolute;
+  top: 50vh;
+  right: 3%;
+}
 
-  75% {
-    transform: translateX(-$slide_width * 3);
-  }
+.inactive {
+  opacity: 0.3;
+  color: rgb(253, 227, 231);
+  cursor: not-allowed;
 
-  100% {
-    transform: translateX(-$slide_width * 4);
+  &:hover {
+    color: darken($color: rgb(253, 227, 231), $amount: 0.5);
+  }
+}
+
+.active {
+  opacity: 1;
+  color: rgb(253, 227, 231);
+  cursor: pointer;
+
+  &:hover {
+    color: darken($color: rgb(253, 227, 231), $amount: 0.5);
   }
 }

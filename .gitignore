@@ -2,6 +2,12 @@
 /node_modules
 
 # production
+.vscode/
+dist/
 
 # misc
+.vscode
+.prettierrc
+.jshintrc
+
 

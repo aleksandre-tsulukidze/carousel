@@ -8,20 +8,20 @@ module.exports = merge(common, {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[contenthash].js',
-    assetModuleFilename: 'images/[name][contenthash][ext]',
+    assetModuleFilename: 'images/[name][contenthash][ext]'
   },
   mode: 'production',
   module: {
     rules: [
       {
         test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
-      { test: /\.(png|jpg|svg)$/, type: 'asset/resource' },
-    ],
+      { test: /\.(png|jpg|svg)$/i, type: 'asset/resource' }
+    ]
   },
   plugins: [
     new MiniCssExtractPlugin({ filename: 'css/[name].[contenthash].css' }),
-    new CleanWebpackPlugin(),
-  ],
+    new CleanWebpackPlugin()
+  ]
 });

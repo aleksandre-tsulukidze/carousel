@@ -1,7 +1,11 @@
 .mapping {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateX(-50%);
 
   & ul {
     display: inline-flex;

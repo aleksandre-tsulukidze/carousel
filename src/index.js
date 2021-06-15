@@ -15,12 +15,12 @@ const Carousel = () => {
   const [index, setIndex] = useState(0);
   const [starter, setStarter] = useState(0);
   const [swiping, setSwiping] = useState(false);
-  const { checker, setWaiting } = useTimer(swiping);
+  const { checker, setWaiting } = useTimer();
 
   useEffect(() => {
-    if (checker <= 0 && swiping) {
+    if (checker > 0 || swiping) {
       return;
-    } else if (swiping === false) {
+    } else {
       setIndex(checker);
     }
   }, [checker]);
@@ -60,27 +60,26 @@ const Carousel = () => {
         </ul>
       </div>
       <button
-        className="back"
         className={index == 0 ? 'back inactive' : 'back active'}
         onClick={
-          index == 0
-            ? () => {}
-            : () => {
+          index !== 0 && !swiping
+            ? () => {
                 setWaiting(index + 1);
                 setIndex(index + 1);
               }
+            : () => {}
         }>
         &laquo;
       </button>
       <button
         className={index == -4 ? 'next inactive' : 'next active'}
         onClick={
-          index == -4
-            ? () => {}
-            : () => {
+          index !== -4 && !swiping
+            ? () => {
                 setWaiting(index - 1);
                 setIndex(index - 1);
               }
+            : () => {}
         }>
         &raquo;
       </button>

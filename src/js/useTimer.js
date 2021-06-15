@@ -9,13 +9,16 @@ const useTimer = () => {
     const timer = setTimeout(() => {
       setChecker(checker - 1);
     }, 2000);
-    if (checker == -5) {
+    if (checker === -5) {
       setChecker(0);
       clearTimeout(timer);
     }
-    if (waiting != null) {
-      setChecker(waiting);
+    if (waiting != null && waiting > checker) {
       clearTimeout(timer);
+      setChecker(waiting);
+      setWaiting(null);
+    } else if (waiting != null && waiting < checker) {
+      setChecker(waiting);
       setWaiting(null);
     }
   }, [checker]);

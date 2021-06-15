@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-const Mapping = ({ index, setIndex }) => {
+const Mapping = ({ index }) => {
   return (
     <div className="mapping">
       <ul>
